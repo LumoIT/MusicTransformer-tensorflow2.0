@@ -66,7 +66,7 @@ class TFRecordsConverter(object):
 
     def process_midi_from_dir(self, midi_root):
         """
-        :param midi_root: midi 데이터가 저장되어있는 디렉터리 위치.
+        :param midi_root: Directory location where midi data is stored.
         :return:
         """
 

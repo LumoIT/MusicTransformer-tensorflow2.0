@@ -12,8 +12,8 @@ from midi_processor.processor import decode_midi, encode_midi
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--max_seq', default=2048, help='최대 길이', type=int)
-parser.add_argument('--load_path', default="result/dec0722", help='모델 로드 경로', type=str)
+parser.add_argument('--max_seq', default=2048, help='max length', type=int)
+parser.add_argument('--load_path', default="result/dec0722", help='model load path', type=str)
 parser.add_argument('--mode', default='dec')
 parser.add_argument('--beam', default=None, type=int)
 parser.add_argument('--length', default=2048, type=int)
