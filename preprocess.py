@@ -1,16 +1,11 @@
 import pickle
 import os
-import re
 import sys
-import hashlib
 from progress.bar import Bar
 import tensorflow as tf
 import utils
 import params as par
-from midi_processor.processor import encode_midi, decode_midi
-from midi_processor import processor
-import config
-import random
+from midi_processor.processor import encode_midi
 
 
 def preprocess_midi(path):
@@ -25,7 +20,6 @@ def preprocess_midi(path):
 def preprocess_midi_files_under(midi_root, save_dir):
     midi_paths = list(utils.find_files_by_extensions(midi_root, ['.mid', '.midi']))
     os.makedirs(save_dir, exist_ok=True)
-    out_fmt = '{}-{}.data'
 
     for path in Bar('Processing').iter(midi_paths):
         print(' ', end='[{}]'.format(path), flush=True)
@@ -122,4 +116,3 @@ if __name__ == '__main__':
     preprocess_midi_files_under(
             midi_root=sys.argv[1],
             save_dir=sys.argv[2])
-
