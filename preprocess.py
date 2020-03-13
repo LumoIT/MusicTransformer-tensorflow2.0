@@ -4,9 +4,11 @@ from midi_processor.processor import encode_midi
 from pathlib import Path
 
 @click.command()
-@click.argument("midi-dir",    type=click.Path(exists=True, file_okay=False, readable=True), callback=lambda c,p,v: Path(v))
-@click.argument("preproc-dir", type=click.Path(             file_okay=False, writable=True), callback=lambda c,p,v: Path(v))
+@click.argument("midi-dir",    type=click.Path(exists=True, file_okay=False, readable=True))
+@click.argument("preproc-dir", type=click.Path(             file_okay=False, writable=True))
 def preprocess(midi_dir, preproc_dir):
+	midi_dir = Path(midi_dir)
+	preproc_dir = Path(preproc_dir)
 	preproc_dir.mkdir(exist_ok=True, parents=True)
 	if list(preproc_dir.iterdir()):
 		print(f"'{preproc_dir}' is not empty. Continuing anyway.")
